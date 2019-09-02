@@ -134,6 +134,30 @@ trait RangeFilterTestTrait
                     ],
                 ],
             ],
+            'between (cast float to integer)' => [
+                null,
+                [
+                    'id' => [
+                        'between' => '9.99..15.99',
+                    ],
+                ],
+            ],
+            'lt (cast float to integer)' => [
+                null,
+                [
+                    'id' => [
+                        'lt' => '15.99',
+                    ],
+                ],
+            ],
+            'gt (cast float to integer)' => [
+                null,
+                [
+                    'id' => [
+                        'gt' => '9.99',
+                    ],
+                ],
+            ],
         ];
     }
 }
