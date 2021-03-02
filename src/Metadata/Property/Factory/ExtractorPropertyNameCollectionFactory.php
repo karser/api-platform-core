@@ -67,6 +67,12 @@ final class ExtractorPropertyNameCollectionFactory implements PropertyNameCollec
 
         if ($properties = $this->extractor->getResources()[$resourceClass]['properties'] ?? false) {
             foreach ($properties as $propertyName => $property) {
+                if (isset($options['serializer_groups'])) {
+                    $groups = (array) $options['serializer_groups'];
+                    if (array_intersect($property['groups'] ?? [], $groups) === []) {
+                        continue;
+                    }
+                }
                 $propertyNames[$propertyName] = $propertyName;
             }
         }
